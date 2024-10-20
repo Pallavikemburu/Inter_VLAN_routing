@@ -3,82 +3,75 @@ For a project involving Inter-VLAN routing in Cisco Packet Tracer, here are some
 1. Creating VLANs
 First, you need to create VLANs on the switch:
 
-  bash
-  Copy code
-  enable
-  configure terminal
-  vlan 10
-  name Sales
-  exit
-  vlan 20
-  name Marketing
-  exit
+    enable
+    configure terminal
+    vlan 10
+    name Sales
+    exit
+    vlan 20
+    name Marketing
+    exit
 
 
 2. Assigning Ports to VLANs
 Assign switch ports to the created VLANs:
 
-  bash
-  Copy code
-  interface range fa0/1 - 10
-  switchport mode access
-  switchport access vlan 10
-  exit
-  
-  interface range fa0/11 - 20
-  switchport mode access
-  switchport access vlan 20
-  exit
+    interface range fa0/1 - 10
+    switchport mode access
+    switchport access vlan 10
+    exit
+    
+    interface range fa0/11 - 20
+    switchport mode access
+    switchport access vlan 20
+    exit
 
 
 3. Configuring a Router for Inter-VLAN Routing
 If using a router on a stick configuration, you need to create sub-interfaces for each VLAN:
 
-  bash
-  Copy code
-  enable
-  configure terminal
-  interface gig0/0
-  no shutdown
-  ip address 192.168.10.1 255.255.255.0  // For VLAN 10
-  exit
-  
-  interface gig0/0.10
-  encapsulation dot1Q 10
-  ip address 192.168.10.1 255.255.255.0
-  exit
-  
-  interface gig0/0.20
-  encapsulation dot1Q 20
-  ip address 192.168.20.1 255.255.255.0
-  exit
+    enable
+    configure terminal
+    interface gig0/0
+    no shutdown
+    ip address 192.168.10.1 255.255.255.0  // For VLAN 10
+    exit
+    
+    interface gig0/0.10
+    encapsulation dot1Q 10
+    ip address 192.168.10.1 255.255.255.0
+    exit
+    
+    interface gig0/0.20
+    encapsulation dot1Q 20
+    ip address 192.168.20.1 255.255.255.0
+    exit
 
 
 4. Configuring Default Gateway on Switch
 Set the default gateway for the switch to ensure it can route traffic:
 
-  bash
-  Copy code
-  enable
-  configure terminal
-  ip default-gateway 192.168.10.1  // Use the router's IP address
-  exit
-  5. Testing Connectivity
-  You can then test connectivity between the VLANs using the ping command from a connected PC:
-  
-  bash
-  Copy code
-  ping 192.168.20.1  // Testing connection to VLAN 20
+    enable
+    configure terminal
+    ip default-gateway 192.168.10.1  // Use the router's IP address
+    exit
+
+
+5. Testing Connectivity
+You can then test connectivity between the VLANs using the ping command from a connected PC:
+    
+    ping 192.168.20.1  // Testing connection to VLAN 20
 
 
 6. Verifying Configuration
 To verify the VLANs and trunking:
 
-  bash
-  Copy code
-  show vlan brief              // Show VLANs
-  show ip interface brief       // Show interfaces and their IPs
-  show running-config           // Show the running configuration
+    show vlan brief              // Show VLANs
+    show ip interface brief       // Show interfaces and their IPs
+    show running-config           // Show the running configuration
 
 
 
+•	This project focuses on configuring Inter-VLAN routing in Cisco Packet tracer, enabling communication between
+devices in different VLANs using a Layer 3 router.
+•	Demonstrates how to segment a network for better security and efficiency while maintaining seamless data flow between VLANs.
