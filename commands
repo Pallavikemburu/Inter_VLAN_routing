@@ -1,3 +1,4 @@
+
 For a project involving Inter-VLAN routing in Cisco Packet Tracer, here are some key commands and steps:
 
 1. Creating VLANs
@@ -71,7 +72,4 @@ To verify the VLANs and trunking:
     show running-config           // Show the running configuration
 
 
-
-•This project focuses on configuring Inter-VLAN routing in Cisco Packet tracer, enabling communication between
-devices in different VLANs using a Layer 3 router.
-•Demonstrates how to segment a network for better security and efficiency while maintaining seamless data flow between VLANs.
+.......................................................................................................
